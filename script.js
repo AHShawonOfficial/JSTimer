@@ -22,6 +22,7 @@ startBtn.addEventListener('click', () => {
    } else {
       errorBox.textContent = err;
    }
+   input.value = '';
 });
 pauseBtn.addEventListener('click', () => {
    timer.pause();
