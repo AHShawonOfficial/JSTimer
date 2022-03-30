@@ -19,11 +19,11 @@ startBtn.addEventListener('click', () => {
    });
    if (!err) {
       errorBox.style.display = 'none';
+      input.value = '';
    } else {
       errorBox.textContent = err;
       errorBox.style.display = 'block';
    }
-   input.value = '';
 });
 pauseBtn.addEventListener('click', () => {
    timer.pause();
