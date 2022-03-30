@@ -21,6 +21,7 @@ startBtn.addEventListener('click', () => {
       errorBox.style.display = 'none';
    } else {
       errorBox.textContent = err;
+      errorBox.style.display = 'block';
    }
    input.value = '';
 });
