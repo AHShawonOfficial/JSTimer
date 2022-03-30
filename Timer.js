@@ -5,6 +5,7 @@ export default class Timer {
    #milliSeconds;
    #totalMilliseconds = 0;
    #running;
+   #callback;
    #paused = false;
    constructor(element) {
       this.element = element;
@@ -34,6 +35,7 @@ export default class Timer {
    }
 
    start(time, callBack) {
+      this.#callback = callBack;
       let error = false;
 
       const pattern = /[0-9]:?/g;
@@ -71,7 +73,7 @@ export default class Timer {
          }
       }
       this.#paused = false;
-      this.#run(callBack);
+      this.#run();
       this.render();
    }
 
@@ -98,16 +100,16 @@ export default class Timer {
       this.render();
    }
 
-   #run(callBack) {
+   #run() {
       if (!this.#running) {
          this.#running = setInterval(() => {
-            if (this.#totalMilliseconds === 0) {
+            if (this.#paused) {
                clearInterval(this.#running);
                this.#running = undefined;
-               if (callBack) callBack();
-            } else if (this.#paused) {
+            } else if (this.#totalMilliseconds === 0) {
                clearInterval(this.#running);
                this.#running = undefined;
+               if (this.#callback) this.#callback();
             } else if (!this.#paused) {
                this.#totalMilliseconds -= 50;
                this.render();
