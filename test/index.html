@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Timer</title>
+      <script src="./script.js" type="module" defer></script>
+      <style>
+         *,
+         *::before,
+         *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         body {
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Arial;
+         }
+         .timer {
+            padding: 10px 15px;
+            background: #555;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
+            font-size: 2em;
+            width: fit-content;
+         }
+      </style>
+   </head>
+   <body>
+      <div>
+         <div class="timer">00:00:00</div>
+         <div class="error" style="display: none;"></div>
+      </div>
+      <input type="text" name="" id="" value="" />
+      <div class="btns">
+         <button class="start">Start</button>
+         <button class="pause">Pause</button>
+         <button class="resume">Resume</button>
+         <button class="stop">Stop</button>
+         <button class="reset">Reset</button>
+      </div>
+   </body>
+</html>
