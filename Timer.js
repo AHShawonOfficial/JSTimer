@@ -42,11 +42,6 @@ export default class Timer {
       const checkedTime = time.match(pattern);
       const splittedTime = time.split(':');
       const emptysplittedTime = splittedTime.some((number) => number === '');
-      if (splittedTime.length > 3 || emptysplittedTime) {
-         error = 'Invalid Format';
-         this.#totalMilliseconds = 0;
-         return error;
-      }
       if (!time) {
          this.#totalMilliseconds = 0;
          error = 'Enter a minimun number to start the Timer';
@@ -55,6 +50,11 @@ export default class Timer {
       if (checkedTime === null || checkedTime.join('') !== time) {
          this.#totalMilliseconds = 0;
          error = 'Invalid Characters or Pattern';
+         return error;
+      }
+      if (splittedTime.length > 3 || emptysplittedTime) {
+         error = 'Invalid Format';
+         this.#totalMilliseconds = 0;
          return error;
       }
       if (!time.includes(':')) {
