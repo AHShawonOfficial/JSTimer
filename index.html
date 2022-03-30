@@ -16,8 +16,10 @@
          body {
             width: 100%;
             min-height: 100vh;
-            display: grid;
-            place-items: center;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
             font-family: Arial;
          }
          .timer {
@@ -29,14 +31,25 @@
             font-size: 2em;
             width: fit-content;
          }
+         input {
+            padding: 5px 8px;
+         }
+         button {
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+         }
       </style>
    </head>
    <body>
-      <div>
-         <div class="timer">00:00:00</div>
-         <div class="error" style="display: none;"></div>
+      <div style="display: grid; place-items: center">
+         <label for="time" style="margin: 5px;">Enter time to countdown</label>
+         <input type="text" id="time" value="" />
       </div>
-      <input type="text" name="" id="" value="" />
+      <div style="display: grid; place-items: center;position: relative;">
+         <div class="timer">00:00:00</div>
+         <div class="error" style="display: none; position:absolute;bottom: -50%;width: max-content;"></div>
+      </div>
       <div class="btns">
          <button class="start">Start</button>
          <button class="pause">Pause</button>
