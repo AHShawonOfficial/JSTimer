@@ -43,7 +43,7 @@ export default class Timer {
       const splittedTime = time.split(':');
       const emptysplittedTime = splittedTime.some((number) => number === '');
       if (!time) {
-         this.#totalMilliseconds = 0;
+         //this.#totalMilliseconds = 0;
          error = 'Enter a minimun number to start the Timer';
          return error;
       }
